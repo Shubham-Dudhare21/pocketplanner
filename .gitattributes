@@ -2,6 +2,4 @@
 *.png filter=lfs diff=lfs merge=lfs -text
 
 # maintaining representation of languages used 
-*.scss linguist-generated=true
 *.css linguist-generated=true
-*.html linguist-generated=true
