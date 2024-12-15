@@ -1,0 +1,92 @@
+$white : #ffffff;
+$primary: #e6e6e6;
+$secondary: #b4b4b4;
+$tertiary: #909090;
+$quaternary: #636363;
+$text-color-secondary: #494848;
+$text-color: #000000;
+$success: #d5fcff;
+$success-text: #003c64;
+$warning: #ffc4c4;
+$warning-text: #b80000;
+
+main {
+    width: 100%;
+    min-height: calc(100vh - 21px);
+}
+
+#text-document {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    min-height: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .toolbar-text {
+        display: flex;
+        background-color: $primary;
+        border-bottom: solid 1px $secondary;
+        width: 100%;
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        gap: 30px;
+        .fontsize {
+            input {
+                border: none;
+                width: 45px;
+            }
+            input[type=number]::-webkit-inner-spin-button {
+                opacity: 1;
+            }
+            input:focus {
+                outline: none;
+            }
+        }
+        .text_align {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .textalign {
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                padding: 2px;
+                border: none;
+                background-color: transparent;
+                cursor: default;
+                i {
+                    font-size: 16px;
+                    line-height: 1;
+                }
+            }
+            button:hover {
+                background-color: $secondary;
+            }
+            .active {
+                background-color: $secondary;
+                border-radius: 5px;
+            }
+        }
+    }
+    #content-text {
+        resize: none;
+        border: none;
+        width: 100%;
+        height: calc(100vh - 52px);
+        box-sizing: border-box;
+        padding: 10px 20px;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    main {
+        min-height: calc(100vh - 18px);
+    }
+}

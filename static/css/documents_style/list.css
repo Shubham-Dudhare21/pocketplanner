@@ -1,0 +1,240 @@
+main {
+  width: 100%;
+  height: calc(100vh - 21px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #202020;
+}
+main .new_list_bar {
+  position: fixed;
+  z-index: 8;
+  top: 20px;
+  display: flex;
+  width: 90%;
+  height: 40px;
+  border-radius: 10px;
+  margin: 10px 0 0 0;
+  background-color: #e6e6e6;
+}
+main .new_list_bar .list_style {
+  text-transform: capitalize;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 15%;
+  background-color: transparent;
+  border-right: solid 1px #b4b4b4;
+  color: #494848;
+}
+main .new_list_bar input {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 100%;
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  color: #494848;
+}
+main .new_list_bar input:focus {
+  outline: none;
+}
+main .new_list_bar button {
+  border: none;
+  border-left: solid 1px #b4b4b4;
+  outline: none;
+  height: 100%;
+  width: 10%;
+  color: #494848;
+}
+main .list_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: auto;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: transparent;
+  min-height: calc(100vh - 21px);
+  min-width: 100%;
+}
+main .list_container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+main .list_container::-webkit-scrollbar-thumb {
+  background-color: #636363;
+  border-radius: 10px;
+}
+main .list_container::-webkit-scrollbar-track {
+  background: transparent;
+}
+main .list_container .list_window {
+  position: absolute;
+  z-index: 5;
+  width: 250px;
+  min-height: 150px;
+  border: solid 1px #000000;
+  border-radius: 10px;
+  background-color: #e6e6e6;
+}
+main .list_container .list_window .list_header {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 500;
+  border-bottom: solid 1px #494848;
+  margin-bottom: 10px;
+}
+main .list_container .list_window .list_header span {
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  padding: 0 10px;
+  flex: 1;
+  cursor: move;
+}
+main .list_container .list_window .list_header .delete_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border: none;
+  outline: none;
+  border-left: 1px solid #b4b4b4;
+  background-color: transparent;
+  color: #ffffff;
+  width: 60px;
+}
+main .list_container .list_window .list_header .delete_list:hover {
+  background-color: #b80000;
+}
+main .list_container .list_window ul {
+  padding: 0 0 0 10px;
+  list-style-position: inside;
+  list-style-type: disc;
+}
+main .list_container .list_window ul li {
+  padding: 0 0 0 5px;
+  text-wrap: wrap;
+}
+main .list_container .list_window .add_to_list_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+main .list_container .list_window .add_to_list_container input {
+  border: 1px solid #b4b4b4;
+  width: 70%;
+  outline: none;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0 10px;
+}
+main .list_container .list_window .add_to_list_container input:focus {
+  background-color: #ffffff;
+}
+main .list_container .list_window .add_to_list_container .add_list_item {
+  border: 1px solid #b4b4b4;
+  background-color: #ffffff;
+  font-size: 20px;
+  border-radius: 5px;
+  line-height: 1;
+  width: 26px;
+}
+main .list_container .list_window .add_to_list_container .add_list_item i {
+  line-height: 1;
+}
+main .list_container .list_window .add_to_list_container .add_list_item:hover {
+  transition: 0.5s;
+  background-color: #b4b4b4;
+}
+main .center_lists {
+  display: flex;
+  position: fixed;
+  z-index: 10;
+  bottom: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #636363;
+  line-height: 1;
+  border: none;
+  outline: none;
+}
+main .center_lists i {
+  color: #909090;
+  font-size: 25px;
+  line-height: 1;
+}
+main .center_lists:hover i {
+  color: #ffffff;
+}
+main .center_lists:hover::before {
+  content: "Lists To Center";
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  right: 35px;
+  height: 35px;
+  width: 140px;
+  border-radius: 10px 0 0 10px;
+  z-index: -1;
+  color: #ffffff;
+  font-weight: 500;
+  background-color: #636363;
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    height: calc(100vh - 17px);
+  }
+  main .new_list_bar {
+    width: 95%;
+    height: 30px;
+    border-radius: 6px;
+  }
+  main .new_list_bar .list_style {
+    width: 20%;
+  }
+  main .new_list_bar button {
+    width: 15%;
+  }
+  main .list_container {
+    min-height: calc(100vh - 17px);
+  }
+  main .list_container .list_window {
+    width: 200px;
+  }
+  main .list_container .list_window .add_list_item {
+    width: 22px;
+  }
+  main .center_lists {
+    right: 10px;
+    width: 25px;
+    height: 25px;
+  }
+  main .center_lists i {
+    font-size: 15px;
+  }
+  main .center_lists:hover::before {
+    width: 110px;
+    right: 24px;
+    height: 25px;
+  }
+}
+
+/*# sourceMappingURL=list.css.map */

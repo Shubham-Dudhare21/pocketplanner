@@ -1,0 +1,507 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+main {
+  width: 100%;
+  min-height: calc(100vh - 21px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #202020;
+}
+main .budget_header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 40px;
+  color: #b4b4b4;
+}
+main .budget_header .budget_options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+main .budget_header .budget_options div {
+  width: 2px;
+  height: 15px;
+  background-color: #494848;
+}
+main .budget_header .budget_options button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #b4b4b4;
+}
+main .budget_header .budget_options button i {
+  line-height: 1;
+  font-size: 25px;
+}
+main .budget_header .budget_options button:hover {
+  color: #e6e6e6;
+}
+main .budget_header .budget_options .active {
+  color: #ffffff !important;
+}
+main .budget_header .budget_options #settings-btn {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+main .budget_container {
+  height: calc(100vh - 21px - 90px);
+  width: 100%;
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+main .budget_container::-webkit-scrollbar {
+  width: 8px;
+}
+main .budget_container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.075);
+  border-radius: 8px;
+}
+main .budget_container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+main .budget_container .settings {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  min-height: calc(100vh - 21px - 90px);
+  width: 100%;
+}
+main .budget_container .settings .insert_new_category {
+  overflow: visible;
+  width: 100%;
+  min-height: 40px;
+  height: 40px;
+  font-size: 18px;
+  display: flex;
+  border: solid 1px #636363;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+main .budget_container .settings .insert_new_category div {
+  width: 2px;
+  height: 100%;
+  background-color: #b4b4b4;
+}
+main .budget_container .settings .insert_new_category select {
+  padding: 0 15px;
+  height: 100%;
+  background-color: transparent;
+  min-width: 75px;
+  width: 20%;
+  text-overflow: ellipsis;
+  border: none;
+}
+main .budget_container .settings .insert_new_category select:focus {
+  outline: none;
+  background-color: #e6e6e6;
+}
+main .budget_container .settings .insert_new_category input {
+  background-color: transparent;
+  height: 100%;
+  flex: 1;
+  border: none;
+  padding: 0 15px;
+}
+main .budget_container .settings .insert_new_category input:focus {
+  background-color: #e6e6e6;
+  outline: none;
+}
+main .budget_container .settings .insert_new_category button {
+  display: flex;
+  align-items: center;
+  border: none;
+  gap: 5px;
+  background-color: transparent;
+  padding: 0 10px;
+}
+main .budget_container .settings .insert_new_category button i {
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+}
+main .budget_container .settings h4 {
+  overflow: visible;
+  line-height: 35px;
+  text-align: center;
+}
+main .budget_container .settings .categories_edit {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  gap: 15px;
+  overflow-x: auto;
+  overflow-y: visible;
+  height: min-content;
+}
+main .budget_container .settings .categories_edit::-webkit-scrollbar {
+  height: 8px;
+}
+main .budget_container .settings .categories_edit::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.075);
+  border-radius: 8px;
+}
+main .budget_container .settings .categories_edit::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+main .budget_container .settings .categories_edit div {
+  min-width: 200px;
+  height: fit-content;
+}
+main .budget_container .settings .categories_edit div h5 {
+  text-align: center;
+  overflow: visible;
+  line-height: 30px;
+  border-bottom: solid 1px #b4b4b4;
+  margin-bottom: 10px;
+}
+main .budget_container .settings .categories_edit div ul {
+  height: auto;
+  overflow: visible;
+  list-style: none;
+}
+main .budget_container .settings .categories_edit div ul li {
+  padding: 0;
+  margin: 0 0 10px 0;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+main .budget_container .tracking {
+  width: 100%;
+  height: 100%;
+}
+main .budget_container .tracking .summary_tracking {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  flex-wrap: wrap;
+  border-bottom: solid 2px #b4b4b4;
+  background-color: #ffffff;
+}
+main .budget_container .tracking .summary_tracking div {
+  min-width: 250px;
+  height: 150px;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+main .budget_container .tracking .summary_tracking div h5 {
+  line-height: 35px;
+  color: #909090;
+}
+main .budget_container .tracking .summary_tracking div h3 {
+  flex: 1;
+}
+main .budget_container .tracking .summary_tracking div h3, main .budget_container .tracking .summary_tracking div h5 {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  text-wrap: nowrap;
+}
+main .budget_container .tracking .table_container .table tr {
+  background-color: transparent;
+}
+main .budget_container .tracking .table_container .table tr th {
+  background-color: #e6e6e6;
+}
+main .budget_container .tracking .table_container .table tr .remove_track_btn:hover {
+  background-color: #e6e6e6;
+}
+main .budget_container .tracking .table_container .table tr .remove_track_btn button {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+main .budget_container .tracking .table_container .table tr .notes {
+  color: #909090;
+  text-overflow: ellipsis;
+}
+main .budget_container .tracking .table_container .table .track_new_data td .budget_type, main .budget_container .tracking .table_container .table .track_new_data td .category_selector {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+main .budget_container .tracking .table_container .table .track_new_data td .date_selector, main .budget_container .tracking .table_container .table .track_new_data td .amount_input, main .budget_container .tracking .table_container .table .track_new_data td .details_input {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+main .budget_container .tracking .table_container .table .track_new_data td .date_selector:focus, main .budget_container .tracking .table_container .table .track_new_data td .amount_input:focus, main .budget_container .tracking .table_container .table .track_new_data td .details_input:focus {
+  padding: 0 10px;
+}
+main .budget_container .tracking .table_container .table .track_new_data .add_new_track_btn:hover {
+  background-color: #e6e6e6;
+}
+main .budget_container .tracking .table_container .table .track_new_data .add_new_track_btn button {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+main .budget_container .dashboard {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0 20px;
+  grid-template-areas: "pie summary graph";
+}
+main .budget_container .dashboard .pie_chart {
+  grid-area: pie;
+}
+main .budget_container .dashboard .summary_dashboard {
+  grid-area: summary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 30px;
+}
+main .budget_container .dashboard .summary_dashboard h3, main .budget_container .dashboard .summary_dashboard h4, main .budget_container .dashboard .summary_dashboard h5 {
+  text-align: center;
+  line-height: 1.5;
+}
+main .budget_container .dashboard .summary_dashboard h4, main .budget_container .dashboard .summary_dashboard h5 {
+  color: #909090;
+}
+main .budget_container .dashboard .bar_graph {
+  grid-area: graph;
+}
+main .budget_container .dashboard .pie_chart, main .budget_container .dashboard .bar_graph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+main .budget_container .dashboard .pie_chart canvas, main .budget_container .dashboard .bar_graph canvas {
+  width: 80% !important;
+  height: auto !important;
+}
+main .budget_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  color: #b4b4b4;
+}
+main .budget_footer .budget_name {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  font-style: normal;
+}
+main .budget_footer .budget_name .edit_doc_name {
+  color: #b4b4b4;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: fit-content;
+  text-transform: capitalize;
+  padding: 0 0 0 5px;
+}
+main .budget_footer .budget_name .edit_doc_name:focus {
+  color: #e6e6e6;
+  border-radius: 4px;
+  background-color: #494848;
+}
+main .budget_footer .budget_month {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+}
+main .budget_footer .budget_month .month_selector, main .budget_footer .budget_month .year_selector {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0 5px 0 0;
+  text-align: right;
+  color: #b4b4b4;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+main .budget_footer .budget_month .month_selector::-webkit-scrollbar, main .budget_footer .budget_month .year_selector::-webkit-scrollbar {
+  width: 0;
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    min-height: calc(100vh - 17px);
+  }
+  main .budget_header {
+    height: 30px;
+    padding: 0 10px;
+  }
+  main .budget_header .budget_options {
+    width: 200px;
+    font-size: 13px;
+  }
+  main .budget_header .budget_options div {
+    width: 1px;
+    height: 10px;
+  }
+  main .budget_header .budget_options button i {
+    font-size: 15px;
+  }
+  main .budget_container {
+    height: calc(100vh - 17px - 60px);
+  }
+  main .budget_container .settings {
+    flex-direction: column;
+    min-height: calc(100vh - 21px - 60px);
+  }
+  main .budget_container .settings .insert_new_category {
+    min-height: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  main .budget_container .settings .insert_new_category div {
+    width: 1px;
+  }
+  main .budget_container .settings .insert_new_category select {
+    padding: 0 5px;
+    width: 15%;
+  }
+  main .budget_container .settings .insert_new_category input {
+    min-width: 100px;
+    padding: 0 5px;
+  }
+  main .budget_container .settings .insert_new_category button {
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+  }
+  main .budget_container .settings .insert_new_category button i {
+    display: none;
+  }
+  main .budget_container .settings .categories_edit div {
+    border: none;
+  }
+  main .budget_container .settings .categories_edit div h4 {
+    line-height: 30px;
+  }
+  main .budget_container .settings .categories_edit div h5 {
+    line-height: 25px;
+  }
+  main .budget_container .settings .categories_edit div ul li {
+    margin: 0 0 5px 0;
+  }
+  main .budget_container .tracking .summary_tracking {
+    flex-wrap: wrap-reverse;
+    gap: 10px;
+  }
+  main .budget_container .tracking .summary_tracking div {
+    min-width: 100px;
+    height: 90px;
+    padding: 0;
+    margin: 0;
+  }
+  main .budget_container .tracking .table_container {
+    overflow-x: auto;
+  }
+  main .budget_container .tracking .table_container::-webkit-scrollbar {
+    height: 8px;
+  }
+  main .budget_container .tracking .table_container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.075);
+    border-radius: 8px;
+  }
+  main .budget_container .tracking .table_container::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  main .budget_container .tracking .table_container .table {
+    min-width: 650px;
+  }
+  main .budget_container .dashboard {
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    gap: 20px 0;
+    grid-template-areas: "graph" "summary" "pie";
+  }
+  main .budget_container .dashboard .pie_chart {
+    grid-area: pie;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  main .budget_container .dashboard .pie_chart canvas {
+    width: 80% !important;
+    height: auto !important;
+  }
+  main .budget_container .dashboard .summary_dashboard {
+    grid-area: summary;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+  }
+  main .budget_container .dashboard .summary_dashboard h3, main .budget_container .dashboard .summary_dashboard h5 {
+    text-align: center;
+    line-height: 1.5;
+  }
+  main .budget_container .dashboard .summary_dashboard h5 {
+    color: #909090;
+  }
+  main .budget_container .dashboard .summary_dashboard h4 {
+    display: none;
+  }
+  main .budget_container .dashboard .bar_graph {
+    grid-area: graph;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  main .budget_container .dashboard .bar_graph canvas {
+    width: 80% !important;
+    height: auto !important;
+  }
+  main .budget_footer {
+    height: 30px;
+    padding: 0 10px;
+  }
+  main .budget_footer .budget_name {
+    font-size: 16px;
+  }
+  main .budget_footer .budget_month {
+    font-size: 14px;
+  }
+}
+.hidden {
+  display: none !important;
+}
+
+.crossedLimit h3 {
+  color: #b80000 !important;
+}
+
+/*# sourceMappingURL=budget_monthly_v1.css.map */

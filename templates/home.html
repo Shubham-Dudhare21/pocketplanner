@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    PocketPlanner - Home
+{% endblock %}
+
+{% block main %}
+    
+    {% if request.args.warning %}
+        <div class="warning_box">
+            <p>{{ request.args.warning.upper() }}</p>
+        </div>
+    {% endif %}
+
+    <div class="container_home">
+        <div class="profile-box">
+            <div class="profile_pic">
+                {% if user_profile.profile_pic == "" %}
+                    <img src="./static/img/default_user_pic.jpg" alt="profile pic">
+                {% else %}
+                    <img src="{{ user_profile.profile_pic }}" alt="profile pic">
+                {% endif %}
+            </div>
+            <div class="profile_info">
+                <div>
+                    <span>Username</span>
+                    <span>Name</span>
+                    <span>Email</span>
+                    <span></span>
+                </div>
+                <div>
+                    <span>: @{{ user_profile.username }} </span>
+                    <span>: {{ user_profile.name }} </span>
+                    <span>: {{ user_profile.email }} </span>
+                    <span id="change_btns">
+                        <a href="/change_password"><button type="button" class="btn btn-light">Change Password</button></a>
+                        <form action="/change_profile">
+                            <input type="hidden" name="n" value="{{ user_profile.name }}">
+                            <input type="hidden" name="u" value="{{ user_profile.username }}">
+                            <button type="submit" class="btn btn-light change_profile"><i class='bx bxs-edit edit_icon'></i></button>
+                        </form>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="docs_box">
+            <table class="table table-hover">
+                <caption>List of Users Recent Documents </caption>
+                <thead class="table-light">
+                    <tr>
+                        <td scope="col">Title</td>
+                        <td scope="col">Type</td>
+                        <td scope="col">Last Update</td>
+                        <td scope="col">Created At</td>
+                        <td scope="col">Tags</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in user_docs %}
+                        <tr onclick="window.location = '/document/{{i.doc_type.lower()}}/{{i.doc_id}}'">
+                            <td><i class='bx bx-file home_file_icon'></i>{{ i.doc_title }}</td>
+                            <td> {{ i.doc_type }} </td>
+                            <td> {{ i.last_update }} </td>
+                            <td> {{ i.created_at }} </td>
+                            <td> {{ i.tags }} </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="home_table_options">
+                <a href="/my_documents"><button type="button" class="btn btn-outline-dark">My Documents</button></a>
+                <a href="/create"><button type="button" class="btn btn-outline-dark">Create New</button></a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block java %}
+    <script src="/static/js/main.js"></script>
+{% endblock %}

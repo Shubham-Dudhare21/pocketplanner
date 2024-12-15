@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}
+    ERROR
+{% endblock %}
+
+{% block main %}
+    <!-- the following meme api to show the error massage with help of apolofy() function in the helpers.py -->
+    <div class="d-flex justify-content-center">
+        <img alt="{{ top }}" class="border img-fluid" src="https://api.memegen.link/images/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?background=https://i.imgur.com/OuullTt.jpeg&width=400" title="{{ top }}">
+    </div>
+{% endblock %}
+
+{% block java %}
+{% endblock %}

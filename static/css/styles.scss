@@ -1,0 +1,550 @@
+$white : #ffffff;
+$primary: #e6e6e6;
+$secondary: #b4b4b4;
+$tertiary: #909090;
+$quaternary: #636363;
+$text-color-secondary: #494848;
+$text-color: #000000;
+$success: #d5fcff;
+$success-text: #003c64;
+$warning: #ffc4c4;
+$warning-text: #b80000;
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, .1);
+        border-radius: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, .075);
+    }
+}
+
+nav {
+    z-index: 10;
+}
+
+%message_box {
+    display: flex;
+    position: absolute;
+    z-index: 9;
+    height: 50px;
+    width: 100vw;
+    font-weight: bolder;
+    padding-top: 10px;
+    align-items: center;
+    justify-content: center;
+    animation: hide-warning 5s ease-in-out forwards;
+}
+
+.warning_box {
+    @extend %message_box;
+    background-color: $warning;
+    color: $warning-text;
+}
+
+.success_box {
+    @extend %message_box;
+    background-color: $success;
+    color: $success-text;
+}
+// animation to hide the warning-box
+@keyframes hide-warning {
+    0% {
+        transform: translate(0, -50px);
+    }
+    10%, 80% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0, -50px);
+        display: none;
+    }
+}
+
+
+
+// this is for centering the form in signup.html ----------------------------------------
+.full-height {
+    height: 50vh; /* Full viewport height */
+}
+
+
+// this is for Home page of the site ---------------------------------------------------
+.container_home {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 56px);
+    width: 100vw;
+}
+
+.profile-box {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 0 50px 0;
+    height: fit-content;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_pic img {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: solid 1px #ffffff;
+    box-sizing: border-box;
+    margin: 10px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
+}
+
+.profile_info {
+    display: flex;
+    padding: 0 0 0 40px;
+}
+
+.profile_info div {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 10px;
+}
+
+.edit_icon {
+    font-size: larger;
+    position: relative;
+    top: 3px;
+}
+
+.change_profile::after {
+    position: absolute;
+    visibility: hidden;
+    content: "Change Name and Username";
+    transform: translate(-30px, 0);
+    color: rgba(0, 0, 0, .0);
+    transition: .5s ease-in-out;
+}
+
+.change_profile:hover::after {
+    visibility: visible;
+    color: $text-color-secondary;
+    transform: translate(15px, 0);
+}
+
+#change_btns {
+    display: flex;
+}
+
+.home_table_options {
+    justify-self: center;
+    margin-bottom: 20px;
+}
+
+.docs_box {
+    flex-grow: 1;
+    width: 100%;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+        height: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, .075);
+        border-radius: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+}
+
+.table thead tr td, .table tbody tr td, caption {
+    padding-left: 10px;
+}
+
+.table {
+    height: fit-content;
+}
+
+.home_file_icon {
+    position: relative;
+    bottom: -2px;
+    font-size: large;
+    color: $tertiary;
+}
+
+
+// this is for the create page -------------------------------------------
+.container_create {
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 56px);
+    width: 100vw;
+}
+
+.preview_window {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: calc(100vw - 500px);
+    height: 100%;
+    background-color: $primary;
+}
+
+.preview_window img {
+    min-width: 500px;
+    max-width: 1080px;
+    padding: 10px 20px;
+}
+
+.create_form {
+    width: 500px;
+    min-height: 100%;
+}
+
+.create_form form {
+    padding: 20px 30px 20px 10px;
+}
+
+#doctype-desc {
+    margin-bottom: 20px;
+}
+
+.create_form_btn {
+    margin: 20px 0;
+}
+
+.currency_selector {
+    margin: 15px 0 0 0;
+}
+
+
+// my document styling --------------------------
+.filter_bar {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 50px 2px 50px;
+}
+
+.offcanvas-body div input {
+    margin-left: 20px;
+}
+
+.group_title {
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+// document layout styling -------------------------------
+%optionlist {
+    position: fixed;
+    border-radius: 0 0 5px 5px;
+    padding: 5px;
+    margin: 0;
+    width: 150px;
+    background-color: $primary;
+    ul {
+        padding: 0;
+    }
+    ul li:hover {
+        background-color: $secondary;
+    }
+}
+
+.titlebar {
+    position: fixed;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 0 0 10px;
+    background-color: $primary;
+    z-index: 100;
+    font-size: 14px;
+    border-bottom: 1px solid $secondary;
+}
+.titlebar_start {
+    display: flex;
+    width: 180px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    .titlebar_brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    div:hover {
+        text-decoration: underline;
+        cursor: default;
+    }
+    div span {
+        color: $text-color-secondary;
+    }
+    .titlebar_about_container a{
+        color: $text-color-secondary;
+        text-decoration: none;
+        cursor: default;
+    }
+}
+#dropdowns {
+    position: fixed;
+    z-index: 100;
+    top: 21px;
+    width: 100%;
+    height: fit-content;
+    background-color: transparent;
+    div ul{
+        a {
+            text-decoration: none;
+            color: $text-color;
+            li {
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        li {
+            display: flex;
+            justify-content: space-between
+        }
+    }
+    .file_options {
+        @extend %optionlist;
+        left: 45px;
+    }
+    .edit_options {
+        @extend %optionlist;
+        left: 70px;
+    }
+    .opt_shortcut {
+        color: $tertiary;
+    }
+}
+.hidden {
+    display: none;
+}
+
+.titlebar_title {
+    padding: 0 50px;
+    max-width: 50vw;
+    text-align: center;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+.titlebar_end {
+    display: flex;
+    button {
+        background-color: transparent;
+        display: flex;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+        align-items: center;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        height: 100%;
+        border: none;
+        padding: 0 5px;
+        i {
+            font-size: 20px;
+        }
+    }
+    button:hover {
+        background-color: $secondary;
+    }
+    .tb_end_close_button:hover {
+        background-color: $warning-text;
+        color: $primary;
+    }
+}
+.offcanvas-body{
+    .offcanvas_profile {
+        display: flex;
+        position: sticky;
+        background-color: $white;
+        top: 0;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0 20px 0;
+        img {
+            margin-right: 20px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            span {
+                color: $text-color-secondary;
+                text-wrap: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+        border-bottom: solid 2px rgba(0, 0, 0, .1);
+        }
+    .offcanvas_doc_desc {
+        margin: 20px 0 0 0;
+        padding: 0 0 10px 0;
+        border-bottom: solid 2px rgba(0, 0, 0, .1);
+        div {
+            margin: 10px 0 0 0;
+        }
+    }
+    .offcanvas_extra_info {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0 0 0;
+        padding: 0 0 10px 0;
+        border-bottom: solid 2px rgba(0, 0, 0, .1);
+        ul{
+            padding: 0;
+            li {
+                span {
+                    color: $secondary;
+                }
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+.space {
+    height: 21px;
+}
+
+@media only screen and (min-width: 992px) {
+    .logout {
+        position: absolute;
+        right: 1vw;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    * {
+        font-size: 13px;
+    }
+
+
+    // Home Page
+    .profile-box {
+        height: fit-content;
+        padding: 0 0 20px 0;
+    }
+    .profile_pic img {
+        width: 100px;
+        height: 100px;    
+    }
+    .change_profile::after {
+        font-size: 10px;
+        transform: translate(0, -15px);
+    }
+    .change_profile:hover::after {
+        transform: translate(0, -5px);
+    }
+
+
+    // create page
+    .container_create{
+        flex-direction: column;
+        min-height: calc(100vh - 51px);
+    }
+    .container_create div:nth-child(1){
+        order: 2;
+    }
+    .preview_window {
+        width: 100vw;
+        min-height: fit-content;
+    }
+    .preview_window img {
+        width: 90%;
+        min-width: 340px;
+        padding: 10px;
+    }
+    .create_form {
+        .form-select {
+            text-overflow: ellipsis;
+        }
+        min-height: fit-content;
+        width: 100vw;
+    }
+    .create_form form {
+        padding: 20px;
+    }
+
+
+    // my documents page
+    .table_container {
+        width: 100vw;
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+            height: 8px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, .075);
+            border-radius: 8px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+        table {
+            min-width: 730px;
+        }
+    }
+
+
+    // document layout
+    .titlebar {
+        padding: 0 3px 0 3px;
+        div {
+            font-size: 11px;
+            div {
+                font-size: 11px;
+                span, a {
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+    .titlebar_brand  img{
+        width: 15px;
+    }
+    .titlebar_start {
+        width: 140px;
+    }
+    .titlebar_title {
+        padding: 0 25px;
+        max-width: 40vw;
+    }
+    .titlebar_end {
+        width: 100px;
+        button {
+            font-size: 11px;
+            i {
+                font-size: 15px;
+            }
+        }
+    }
+    .space {
+        height: 17px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .titlebar_title {
+        max-width: 100px;
+        padding: 0;
+    }
+}

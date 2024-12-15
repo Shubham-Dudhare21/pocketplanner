@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block title %}
+    LOGIN
+{% endblock %}
+
+{% block main %}
+
+    <div class="container full-height d-flex align-items-center justify-content-center">
+        <form action="/change_profile" method="post">
+            <input type="hidden" id="submit_datetime" name="submit_datetime">
+
+            <span>New Username:</span>
+            <div class="mb-3">
+                <input type="hidden" name="u" value="{{ u }}">
+                <input class="form-control mx-auto w-auto" type="text" name="new_username" autocomplete="off" placeholder="{{ u }}">
+            </div>
+
+            <span>New Name:</span>
+            <div class="mb-3">
+                <input type="hidden" name="n" value="{{ n }}">
+                <input class="form-control mx-auto w-auto" type="text" name="new_name" autocomplete="off" placeholder="{{ n }}">
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        
+        </form>
+    </div>
+
+{% endblock %}
+
+{% block java %}
+    <script src="/static/js/main.js"></script>
+{% endblock %}

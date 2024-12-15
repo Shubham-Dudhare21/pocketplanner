@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block main %}
+
+    {% if request.args.warning %}
+        <div class="warning_box">
+            <p>{{ request.args.warning.upper() }}</p>
+        </div>
+    {% endif %}
+
+    <div class="container full-height d-flex align-items-center justify-content-center">
+        <form action="/registration" method="post">
+            <input type="hidden" id="current_datetime" name="current_datetime">
+
+            <div class="mb-3">
+            <input class="form-control mx-auto w-auto" type="text" name="name" autocomplete="off" autofocus placeholder="Name">
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" type="text" name="username" autocomplete="off" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" type="email" name="email" placeholder="Email">
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" type="password" name="password" placeholder="Password" minlength="8">
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" type="password" name="confirm" placeholder="Confirm Password">
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="text-center">
+        <form action="/login" method="post">
+            <input type="hidden" name="provider" value="google">
+            <input type="hidden" id="auth_datetime" name="current_datetime">
+            <button type="submit" class="btn btn-outline-primary">Sign In with Google</button>
+        </form>
+    </div>
+
+    <div class="mb-3 text-center">
+        <a href="/login">
+            <button type="button" class="btn btn-link">already on PocketPlanner? Log in</button>
+        </a>
+    </div>
+    
+{% endblock %}
+
+{% block java %}
+    <script src="/static/js/main.js"></script>
+{% endblock %}

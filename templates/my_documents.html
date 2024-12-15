@@ -1,0 +1,140 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    My Documents
+{% endblock %}
+
+{% block main %}
+    <div class="filter_bar">
+        <div class="input-group mb-2">
+            <button class="input-group-text" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <i class='bx bx-filter-alt'></i>
+            </button>
+            <input autocomplete="off" type="search" class="form-control" placeholder="Search..." name="q-doc" id="doc_search">
+        </div>
+    </div>
+    <!-- off canvas filter page when the filter button is clicked -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filter</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form action="/my_documents" method="post">
+                <div class="filter_titles">Sort By</div>
+                <div>
+                    <input class="form-check-input" type="radio" name="sortby" value="doc_title" id="doc-title">
+                    <label for="doc-title">Title</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="sortby" value="created_at" id="created-at">
+                    <label for="created-at">Date Created</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="sortby" value="last_update" id="last-update">
+                    <label for="last-update">Date Modified</label>
+                </div>
+
+                <div class="filter_titles">Order</div>
+                <div>
+                    <input class="form-check-input" type="radio" name="order" id="asc" value="ASC">
+                    <label for="asc">Ascending</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="order" id="desc" value="DESC">
+                    <label for="desc">Descending</label>
+                </div>
+
+                <div class="filter_titles">Group By</div>
+                <div>
+                    <input class="form-check-input" type="radio" name="groupby" value="tags" id="tags">
+                    <label for="tags">Tags</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="groupby" value="doctype" id="doctype">
+                    <label for="doctype">Document Type</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="groupby" value="doc_title" id="first_letter">
+                    <label for="first_letter">Title</label>
+                </div>
+                <button type="submit" class="btn btn-outline-secondary mt-3">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="table_container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Date Updated</th>
+                    <th scope="col">Date Created</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if documents %}
+                    {% for key, group in documents.items() %}
+                        <tr class="table-light">
+                            <td class="table-light" scope="row" colspan="5">
+                                <h5 class="group_title"># {{ key }}</h5>
+                            </td>
+                        </tr>
+                        {% for i in group %}
+                        <tr onclick="window.location = '/document/{{i.doc_type.lower()}}/{{i.doc_id}}'">
+                            <td>
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#pop_desc{{ key|replace(' ', '_') }}_{{ loop.index0 }}" onclick="event.stopPropagation()">
+                                    <i class='bx bx-chevron-right'></i>
+                                </button>
+                                {{ i.doc_title }} 
+                            </td>
+                            <td> {{ i.doc_type }} </td>
+                            <td> {{ i.last_update }} </td>
+                            <td> {{ i.created_at }} </td>
+                            <td class="align-middle">
+                                <form action="/delete/{{ i.doc_id }}">
+                                    <button type="submit" class="btn btn-outline-danger">
+                                        <i class='bx bx-trash'></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+
+                        <div class="modal fade" id="pop_desc{{ key|replace(' ', '_') }}_{{ loop.index0 }}" tabindex="-1" aria-labelledby="pop_desc_label{{ key|replace(' ', '_') }}_{{ loop.index0 }}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="pop_desc_label{{ key|replace(' ', '_') }}_{{ loop.index0 }}">
+                                            {{ i.doc_title }}
+                                        </h5>
+                                        <button 
+                                            type="button" 
+                                            class="btn-close" 
+                                            data-bs-dismiss="modal" 
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>{{ i.desc }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                        <tr>
+                            <td scope="row" colspan="5">
+                                <h5></h5>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td scope="row" colspan="5">
+                            <h5>No Documents</h5>
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block java %}
+    <script src="/static/js/main.js"></script>
+{% endblock %}

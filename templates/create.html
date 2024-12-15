@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    PocketPlanner - Create
+{% endblock %}
+
+{% block main %}
+
+    {% if request.args.Warning %}
+      <div class="warning_box">
+          <p>{{ request.args.Warning.upper() }}</p>
+      </div>
+    {% endif %}
+
+    <div class="container_create">
+      <div class="preview_window">
+          <img id="doc_preview" src="/static/previews/preview_demo.png" alt="Preview">
+      </div>
+      <div class="create_form">
+        <form action="/create" method="post">
+          
+          <input type="hidden" id="current_datetime" name="current_datetime">
+
+          <div class="mb-3">
+            <label for="input-title" class="form-label">Document Title</label>
+            <input name="title" type="text" class="form-control" id="input-title" aria-describedby="doc-title" autocomplete="off" required>
+            <div id="doc-title" class="form-text">Please enter a title for your document.</div>
+          </div>
+        
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="doctype-select">File Type</label>
+            <select name="doctype" class="form-select" id="doctype-select">
+              <option selected disabled>Choose...</option>
+              {% for i in doctypes %}
+                <option value="{{ i.type }}">{{ i.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div id="doctype-desc" class="form-text">doctype description</div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="doc-tags">Tags</span>
+            <input name="tags" type="text" class="form-control" aria-label="document tags input" aria-describedby="doc-tags" placeholder="important, urgent, random, etc.">
+          </div>
+        
+          <div class="input-group">
+            <span class="input-group-text">Description</span>
+            <textarea name="description" class="form-control" aria-label="Description"></textarea>
+          </div>
+          
+          <div class="input-group mb-3 currency_selector" id="hide_currency" hidden>
+            <label class="input-group-text" for="currency_selector">Currency</label>
+            <select name="currency" class="form-select" id="currency_selector">
+              <option selected value="USD">USD - $  (Default)</option>
+              {% for i in currencies %}
+                <option value="{{ i.code }}">{{ i.code }} - {{ i.symbol }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-outline-secondary create_form_btn">Create</button>
+
+        </form>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block java %}
+    <script src="/static/js/main.js"></script>
+{% endblock %}

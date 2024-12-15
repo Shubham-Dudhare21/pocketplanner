@@ -167,3 +167,6 @@ cython_debug/
 
 # flask files
 flask_session/
+
+# credentials and API keys files eg. google OAuth json
+credentials/

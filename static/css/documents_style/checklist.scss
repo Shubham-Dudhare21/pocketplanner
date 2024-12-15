@@ -1,0 +1,295 @@
+// positioning and sizing
+$main-min-height: calc(100vh - 21px);
+$main-min-height-phone: calc(100vh - 17px);
+// color palette
+$white : #ffffff;
+$primary: #e6e6e6;
+$secondary: #b4b4b4;
+$tertiary: #909090;
+$quaternary: #636363;
+$text-color-secondary: #494848;
+$text-color: #000000;
+$success: #d5fcff;
+$success-text: #003c64;
+$warning: #ffc4c4;
+$warning-text: #b80000;
+$black-bg: #202020;
+
+
+main {
+    width: 100%;
+    height: $main-min-height;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $black-bg;
+    .new_checklist_bar {
+        position: fixed;
+        z-index: 8;
+        top: 20px;
+        display: flex;
+        width: 90%;
+        height: 40px;
+        border-radius: 10px;
+        margin: 10px 0 0 0;
+        background-color: $primary;
+        .checked_style {
+            text-transform: capitalize;
+            text-align: center;
+            text-overflow: ellipsis;
+            text-wrap: nowrap;
+            border: none;
+            outline: none;
+            height: 100%;
+            width: 15%;
+            background-color: transparent;
+            border-right: solid 1px $secondary;
+            color: $text-color-secondary;
+        }
+        input {
+            box-sizing: border-box;
+            padding: 0 10px;
+            height: 100%;
+            flex: 1;
+            border: none;
+            background-color: transparent;
+            color: $text-color-secondary;
+        }
+        input:focus {
+            outline: none;
+        }
+        button {
+            border: none;
+            border-left: solid 1px $secondary;
+            outline: none;
+            height: 100%;
+            width: 10%;
+            color: $text-color-secondary;
+        }
+    }
+    .checklist_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: auto;
+        padding: 5px;
+        box-sizing: border-box;
+        background-color: transparent;
+        min-height: $main-min-height;
+        min-width: 100%;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $quaternary;
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .checklist_window {
+            position: absolute;
+            z-index: 5;
+            width: 250px;
+            min-height: 150px;
+            border: solid 1px $text-color;
+            border-radius: 10px;
+            background-color: $primary;
+            .checklist_header {
+                width: 100%;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                background-color: $text-color;
+                color: $white;
+                font-weight: 500;
+                border-bottom: solid 1px $text-color-secondary;
+                margin-bottom: 10px;
+                span {
+                    box-sizing: border-box;
+                    text-overflow: ellipsis;
+                    text-wrap: nowrap;
+                    padding: 0 10px;
+                    flex: 1;
+                    cursor: move;
+                }
+                .delete_checklist {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    border: none;
+                    outline: none;
+                    border-left: 1px solid $secondary;
+                    background-color: transparent;
+                    color: $white;
+                    width: 60px;
+                    &:hover {
+                        background-color: $warning-text;
+                    }
+                }
+            }
+            ul {
+                padding: 0 0 0 10px;
+                list-style: none;
+                li {
+                    display: flex;
+                    padding: 0 0 0 5px;
+                    margin-bottom: 5px;
+                    text-wrap: wrap;
+                    input[type="checkbox"] {
+                        accent-color: $text-color;
+                    }
+                    label {
+                        align-self: center;
+                        padding: 0 0 0 10px;
+                    }
+                }
+            }
+            .add_to_checklist_container {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                gap: 5px;
+                margin-bottom: 10px;
+                input {
+                    border: 1px solid $secondary;
+                    outline: none;
+                    width: 70%;
+                    border-radius: 5px;
+                    background-color: rgba($color: #000000, $alpha: .05);
+                    padding: 0 10px;
+                    &:focus {
+                        background-color: $white;
+                    }
+                }
+                .add_checklist_item {
+                    border: 1px solid $secondary;
+                    background-color: $white;
+                    font-size: 20px;
+                    border-radius: 5px;
+                    line-height: 1;
+                    width: 26px;
+                    i {
+                        line-height: 1;
+                    }
+                    &:hover {
+                        transition: .5s;
+                        background-color: $secondary;
+                    }
+                }
+            }
+        }
+    }
+    .center_checklists {
+        display: flex;
+        position: fixed;
+        z-index: 10;
+        bottom: 20px;
+        right: 20px;
+        width: 35px;
+        height: 35px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: $quaternary;
+        line-height: 1;
+        border: none;
+        outline: none;
+        i {
+            color: $tertiary;
+            font-size: 25px;
+            line-height: 1;
+        }
+        &:hover i{
+            color: $white;
+        }
+        &:hover::before {
+            content: 'Lists To Center';
+            position: fixed;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            right: 35px;
+            height: 35px;
+            width: 140px;
+            border-radius: 10px 0 0 10px;
+            z-index: -1;
+            color: $white;
+            font-weight: 500;
+            background-color: $quaternary;
+        }
+    }
+}
+
+.line-through li .active{
+    color: $tertiary;
+    text-decoration: line-through $text-color;
+}
+.underline li .active{
+    color: $tertiary;
+    text-decoration: underline $text-color;
+}
+.overline li .active{
+    color: $tertiary;
+    text-decoration: overline $text-color;
+}
+.line-through-double li .active{
+    color: $tertiary;
+    text-decoration: line-through double $text-color;
+}
+.line-through-wavy li .active{
+    color: $tertiary;
+    text-decoration: line-through wavy $text-color;
+}
+.line-through-dashed li .active{
+    color: $tertiary;
+    text-decoration: line-through dashed $text-color;
+}
+.none li .active{
+    color: $tertiary;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 992px) {
+    main {
+        height: $main-min-height-phone;
+        .new_checklist_bar {
+            width: 95%;
+            height: 30px;
+            border-radius: 6px;
+            .checked_style {
+                width: 25%;
+            }
+            button {
+                width: 15%;
+            }
+        }
+        .checklist_container {
+            min-height: $main-min-height-phone;
+            .checklist_window {
+                width: 200px;
+                .add_checklist_item {
+                    width: 22px;
+                }
+            }
+        }
+        .center_checklists {
+            right: 10px;
+            width: 25px;
+            height: 25px;
+            i {
+                font-size: 15px;
+            }
+            &:hover::before {
+                width: 110px;
+                right: 24px;
+                height: 25px;
+            }
+        }
+    }
+}
