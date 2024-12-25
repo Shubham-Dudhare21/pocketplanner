@@ -71,19 +71,19 @@ document.getElementById('main').innerHTML = `
             <div class="summary_dashboard">
                 <div class="monthly_income">
                     <h5>Monthly Income</h5>
-                    <h3>$00,000</h3>
+                    <h3>00,000</h3>
                 </div>
                 <div class="monthly_expense">
                     <h5>Monthly Expense</h5>
-                    <h3>$00,000</h3>
+                    <h3>00,000</h3>
                 </div>
                 <div class="monthly_savings">
                     <h5>Monthly Savings</h5>
-                    <h3>$00,000</h3>
+                    <h3>00,000</h3>
                 </div>
                 <div class="cash_balance">
                     <h5>Cash Balance</h5>
-                    <h3>$00,000</h3>
+                    <h3>00,000</h3>
                 </div>
                 <h4>Summary</h4>
             </div>
@@ -96,15 +96,15 @@ document.getElementById('main').innerHTML = `
             <div class="summary_tracking">
                 <div class="income_total">
                     <h5>Income</h5>
-                    <h3>$00,000</h3>
+                    <h3>00,000</h3>
                 </div>
                 <div class="expense_total">
                     <h5>Expenses</h5>
-                    <h3>$00,000</h3>
+                    <h3>00,000</h3>
                 </div>
                 <div class="savings_total">
                     <h5>Savings</h5>
-                    <h3>$00,000</h3>
+                    <h3>00,000</h3>
                 </div>
             </div>
             <div class="table_container">
