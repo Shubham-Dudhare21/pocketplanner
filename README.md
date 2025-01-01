@@ -25,10 +25,10 @@ On the 'Create New' page, users can create four types of documents for now. The 
 
 
 > [!IMPORTANT]
-> \# Before running the app
+> \# Before running the app <br/>
 > pip install -r requirements.txt
 >
-> \# To Run the app
+> \# To Run the app<br/>
 > flask run
 
 #### Built With
