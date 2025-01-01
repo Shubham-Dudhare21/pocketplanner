@@ -25,10 +25,10 @@ On the 'Create New' page, users can create four types of documents for now. The 
 
 
 > [!IMPORTANT]
-> # Before running the app
+> \# Before running the app
 > pip install -r requirements.txt
 >
-> # To Run the app
+> \# To Run the app
 > flask run
 
 #### Built With
@@ -41,4 +41,4 @@ On the 'Create New' page, users can create four types of documents for now. The 
 * CS50 - CS50's Python Library
 
 #### Author of the Project: [Shubham Dudhare](https://github.com/Shubham-Dudhare21/)
-#### License: <https://github.com/Shubham-Dudhare21/pocketplanner/blob/main/LICENSE>
+#### License: [Click Here](https://github.com/Shubham-Dudhare21/pocketplanner/blob/main/LICENSE)
