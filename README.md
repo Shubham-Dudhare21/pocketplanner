@@ -40,5 +40,27 @@ On the 'Create New' page, users can create four types of documents for now. The 
 * SQLITE3 - Query Language For Database
 * CS50 - CS50's Python Library
 
+#### Project Files
+1. **Static folder** : used to store folders with static files such as:
+   > **css folder** : has stylesheets for styling the webpage. here both SCSS files and rendered CSS files are stored.
+   > **img folder** : this folder contains image files such as logos and default profile pic.
+   > **intro_page folder** : separate css and image files for intro page.
+   > **js folder** : this folder contains javascript files for client side logic. main.js is js file i.e. attached to all the html documents and other js files are for specific document type selected by users and change dynamicaly with jinja and python.
+   > **previews folder** : this folder contains all the gifs used for previewing the documents.
+2. **templates folder** : this folder has all the HTML files in the project.
+3. **app.py** : this is main application file. this file has all the routes and functions in the webapp such as :
+   index : for intro page
+   registration, login and authorize : for account creation or log in.
+   home, change_password, change_profile : for rendering homepage and its features.
+   create : this renders create page with form. when form is submmited stores it in database then redirect user to document created with formdata.
+   my_documents : this renders list of all the documents created by user and if filter is applied then returns the filtered data.
+   delete : deletes the documents data and metadata related to doc_id
+   document_layout : this renders the structure for all the documents.
+   > the following are routes for documents mentioned above : document_text, document_list, document_checklist, document_budget_monthly_v1
+   there are few api routes such as : create_doctype and search_doc
+5. **helpers.py** : this file contains functions needed for the app.py to work.
+6. **pocketplanner.db** : database file. to store documents created by users and users data.
+7. **requirement.txt** : list of all the requirements needed to install before running the app.
+
 #### Author of the Project: [Shubham Dudhare](https://github.com/Shubham-Dudhare21/)
 #### License: [Click Here](https://github.com/Shubham-Dudhare21/pocketplanner/blob/main/LICENSE)
