@@ -1,5 +1,5 @@
 # pocketplanner
-#### Video Demo: <>
+#### Video Demo: <https://youtu.be/SdschcuYorg?si=9tOX-_HS7zm1zAnt>
 #### App link: <https://pocketplanner.pythonanywhere.com>
 #### Description:
 PocketPlanner is a simple and intuitive web app for managing notes, tasks, and budgets. With features like sticky pad-style checklists and monthly budget tracking, it helps users stay organized and in control of their finances, it's perfect for personal productivity.
